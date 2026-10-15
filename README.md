@@ -4,7 +4,7 @@ Landing de venta de dominio en español. Dirección creativa: «Instinto propio.
 
 ## Desarrollo
 
-Node.js >=22.12 y npm. Astro estático + TypeScript, CSS y SVG propios. Sin JavaScript de cliente ni fuentes externas.
+Node.js >=22.12 y npm. Astro estático + TypeScript, CSS, SVG y el logo aprobado en WebP. Sin JavaScript de cliente ni fuentes externas.
 
 ```sh
 npm ci
@@ -14,7 +14,7 @@ npm run build
 npm run preview
 ```
 
-`npm run build` genera una preview con noindex en HTML y cabeceras. `npm run build:production` genera la versión indexable para https://chivo.si. Cada build convierte la imagen social SVG a PNG 1200 × 630 con Sharp.
+`npm run build` genera una preview con noindex en HTML y cabeceras. `npm run build:production` genera la versión indexable para https://chivo.si. Cada build incrusta el logo aprobado en la imagen social SVG y genera su PNG 1200 × 630 con Sharp. La portada usa `public/brand/chivo-logo.webp`, con dimensiones explícitas y carga prioritaria.
 
 ## Configuración
 

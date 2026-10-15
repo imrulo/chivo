@@ -21,3 +21,11 @@ Límites:
 - No se pudo consultar la web actual de chivo.si; no se modificó.
 
 El proyecto está construido y comprobado dentro de este alcance, preparado para imrulo/chivo en GitHub. La publicación en Cloudflare sigue pendiente.
+
+## Evolución de identidad con el logo aprobado
+
+- Logo aprobado integrado en la portada como WebP de 1000 × 1000; proporción reservada para limitar movimientos de layout.
+- Fondo oscuro de portada, naranja en CTA y separadores, titulares de mayor peso y contraste. Estilos móviles específicos para la composición y el titular.
+- Imagen social actualizada con el mismo logo; SVG autocontenido y PNG inspeccionado visualmente.
+- Repetidas las comprobaciones de tipos y build, así como disponible/vendido, preview/producción, metadatos y enlaces de contacto: correctas.
+- No se realizó inspección visual de la web en navegador; el límite de QA responsive sigue vigente.
