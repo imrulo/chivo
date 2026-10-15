@@ -1,0 +1,6 @@
+---
+import { contactHref, sold } from '../config';
+interface Props { label?: string; variant?: string; }
+const { label = 'Consultar precio', variant = '' } = Astro.props;
+---
+{!sold && <a class:list={['button', variant]} href={contactHref} rel="noopener noreferrer">{label}<span aria-hidden="true">↗</span></a>}

@@ -1,0 +1,31 @@
+{
+  "name": "chivo-si",
+  "version": "1.0.0",
+  "description": "Landing estática para la adquisición de chivo.si",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "check": "astro check",
+    "build": "node scripts/build.mjs",
+    "build:production": "node scripts/build.mjs --production",
+    "preview": "astro preview --host 0.0.0.0",
+    "deploy:preview": "npm run build && wrangler deploy --config wrangler.preview.jsonc",
+    "deploy:production": "npm run build:production && wrangler deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "astro": "^7.3.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.149.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

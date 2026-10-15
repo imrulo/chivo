@@ -1,0 +1,31 @@
+---
+import { config, sold } from '../config';
+import '../styles/global.css';
+interface Props { title?: string; description?: string; noindex?: boolean; }
+const { title = `${config.domain} — ${sold ? 'Dominio vendido' : 'Dominio en venta · Superinteligencia con carácter'}`, description = sold ? `${config.domain} ha sido vendido y ya no está disponible para adquisición.` : `${config.domain} está en venta. Un nombre corto y con carácter para proyectos de superinteligencia en español. Consulta el precio y las condiciones de adquisición.`, noindex = false } = Astro.props;
+const preview = import.meta.env.SITE_ENV !== 'production';
+const canonical = new URL(Astro.url.pathname, config.canonicalOrigin).href;
+const image = new URL(config.socialImage, config.canonicalOrigin).href;
+const schema = { '@context': 'https://schema.org', '@graph': [
+  { '@type': 'WebSite', '@id': `${config.canonicalOrigin}/#website`, name: config.domain, url: config.canonicalOrigin, inLanguage: config.locale },
+  { '@type': 'WebPage', '@id': canonical + '#webpage', url: canonical, name: title, description, inLanguage: config.locale, isPartOf: { '@id': `${config.canonicalOrigin}/#website` } }
+] };
+---
+<!doctype html>
+<html lang={config.locale}>
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title><meta name="description" content={description} />
+    <meta name="theme-color" content={config.theme.ink} />
+    <meta name="robots" content={noindex || preview ? 'noindex, follow' : 'index, follow'} />
+    <link rel="canonical" href={canonical} /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" /><meta property="og:site_name" content={config.domain} />
+    <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="es_ES" /><meta property="og:image" content={image} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${config.domain}. ${sold ? 'Dominio vendido' : 'Instinto propio. Superinteligencia. Dominio en venta'}.`} />
+    <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={title} /><meta name="twitter:description" content={description} /><meta name="twitter:image" content={image} /><meta name="twitter:image:alt" content={`${config.domain}, ${sold ? 'dominio vendido' : 'dominio en venta'}.`} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+    <style define:vars={{ 'page-bg': config.theme.background, ink: config.theme.ink, accent: config.theme.accent, 'font-serif': config.typography.serif, 'font-sans': config.typography.sans }}></style>
+  </head>
+  <body><a class="skip-link" href="#contenido">Saltar al contenido</a><slot /></body>
+</html>

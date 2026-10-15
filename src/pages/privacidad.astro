@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { config } from '../config';
+---
+<Base title={`Privacidad — ${config.domain}`} description={`Cómo funciona el contacto y la privacidad en ${config.domain}.`}>
+  <header class="header wrap"><a class="wordmark" href="/">← {config.domain}</a></header>
+  <main id="contenido" class="wrap document"><p class="eyebrow">INFORMACIÓN SOBRE ESTA PÁGINA</p><h1>Privacidad y contacto</h1><p>Esta landing presenta la oferta de adquisición del dominio {config.domain}. El contacto comercial se realiza con Ruslan Ferrales Aponte a través de WhatsApp.</p>
+  <h2>Datos en esta landing</h2><p>La implementación no incorpora formularios, cuentas, cookies propias ni herramientas de analítica. La infraestructura de alojamiento puede procesar datos técnicos de conexión, como la dirección IP y los datos de la solicitud, necesarios para servir y proteger la web. Las prácticas aplicables dependen de la configuración efectiva del alojamiento.</p>
+  <h2>Contacto por WhatsApp</h2><p>Al pulsar un botón de contacto se abre un enlace externo a WhatsApp con un mensaje preparado que incluye el dominio. Ese mensaje no se envía automáticamente: puedes editarlo y decidir si lo envías. WhatsApp es un servicio de Meta y aplica sus propias políticas de privacidad.</p><p>Si envías una consulta, tu número y la información que compartas se usarán para responder y, si procede, gestionar la negociación del dominio. No envíes documentos de identidad ni información de pago en la consulta inicial.</p>
+  <h2>Consultas sobre tus datos</h2><p>Puedes contactar al propietario en el número <a href={`https://wa.me/${config.contact.whatsapp}`}>+{config.contact.whatsapp}</a> para solicitar información sobre los datos de tu conversación o pedir su eliminación, sujeta a las obligaciones que puedan corresponder a una operación realizada.</p>
+  <p><a href="https://www.whatsapp.com/legal/privacy-policy" rel="noopener noreferrer">Política de privacidad de WhatsApp ↗</a></p><p><a href="/">Volver a {config.domain}</a></p></main>
+</Base>
